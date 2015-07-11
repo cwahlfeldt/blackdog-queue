@@ -1,0 +1,78 @@
+/* override and add styles */
+
+body {
+    counter-reset: section;
+}
+.fixed {
+    position: fixed;
+}
+.header {
+    background-color: #F26300;
+    padding: 130px;
+    padding-bottom: 100%;
+    margin-left: -40px;
+    margin-top: -50px;
+    width: 38.5%;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.12), 0 6px 6px 0 rgba(0, 0, 0, 0.12);
+}
+.col-md-8 {
+    padding-right: 20px;
+    padding-left: 50px;
+}
+.badge {
+    display: inline-block;
+    min-width: 40px;
+    padding: 3px 7px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #777;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+h4.counted::before {
+    counter-increment: section;
+    content: counter(section)" ";
+}
+h4 {
+    font-weight: bold;
+}
+.push-bottom {
+    margin-bottom: 5px;
+}
+.btn.btn-fab {
+    margin: 0;
+    padding: 15px;
+    font-size: 26px;
+    width: 150px;
+    height: 150px;
+}
+.mdi-content-add:before {
+    font-size: 100px;
+}
+.modal-content {
+    font-size: 2em !important;
+}
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 600px;
+        margin: 100px auto;
+    }
+}
+fieldset[disabled] .form-control:not(textarea),
+.form-control-wrapper .form-control:not(textarea),
+.form-control:not(textarea),
+fieldset[disabled] .form-control:focus:not(textarea),
+.form-control-wrapper .form-control:focus:not(textarea),
+.form-control:focus:not(textarea),
+fieldset[disabled] .form-control.focus:not(textarea),
+.form-control-wrapper .form-control.focus:not(textarea),
+.form-control.focus:not(textarea) {
+    height: 45px;
+}
+.s-alert-box {
+    z-index: 1100;
+}

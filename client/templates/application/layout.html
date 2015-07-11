@@ -1,0 +1,18 @@
+<template name="layout">
+    <div class="container-fluid">
+        {{> sAlert}}
+        <div class="row">
+            <br>
+            <div class="main-wrap">
+                <div class="col-md-4 mast-head">
+                    <div class="">{{> header}}</div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="">{{> yield}}</div>
+            </div>
+            <br>
+        </div>
+    </div>
+</template>

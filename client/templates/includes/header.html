@@ -1,9 +1,19 @@
 <template name="header">
     <div class="text-center header fixed">
-        <h1><b>Queue</b></h1>
-        <!-- <h5>by: Chris Wahlfeldt</h5> -->
+        <h1 class="title-text"><b><a href="{{pathFor 'queueList'}}">Queue</a></b></h1>
         <br>
-        <button class="add-btn btn btn-fab mdi-content-add btn-primary" data-toggle="modal" data-target="#myModal"></button>
+        <a class="add-btn btn btn-fab mdi-content-add btn-primary" href="{{pathFor 'queueSubmit'}}"></a>
+        <br>
+        <br>
+        {{#if currentUser}}
+            <a class="newboard-btn btn btn-danger">New Board</a>
+        {{/if}}
+        <div class="nav">
+            {{#if currentUser}}
+                <a class="log-out">Log Out</a>
+            {{else}}
+                <a class="sign-in" href="{{pathFor 'signIn'}}">Sign In</a>
+            {{/if}}
+        </div>
     </div>
-    {{> queueSubmit}}
 </template>

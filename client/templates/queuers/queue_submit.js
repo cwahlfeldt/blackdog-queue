@@ -1,13 +1,11 @@
-Template.queueSubmit.onCreated(function() {
-    $('#myModal').on('shown.bs.modal', function() {
-        $('#name').focus();
-    });
+Template.queueSubmit.onRendered(function() {
+    this.$('#name').focus();
 });
 
 Template.queueSubmit.events({
     'submit form': function(e) {
         e.preventDefault();
-        
+
         var queuer = {
             name: $(e.target).find('[name=name]').val(),
             partySize: $(e.target).find('[name=party]').val(),
@@ -24,7 +22,7 @@ Template.queueSubmit.events({
                 return console.log('Error on insert');
             }
 
-            console.log(result._id);    
+            console.log(result._id);
 
             thisId = result._id;
 
@@ -35,13 +33,17 @@ Template.queueSubmit.events({
         $('#name').val('');
         $('#party').val('');
         $('#phone').val('');
-        
-        $('#myModal').modal('toggle');
+
+        Router.go('queueList');
+        //$('#myModal').modal('toggle');
     }
 });
 
 // scrolls nicely to an anchor that has the id of the most recently added in the list.
 var scrollToAnchor = function(aid) {
     var tag = $('#' + aid);
-    $('html,body').animate({scrollTop: tag.offset().top},'slow');
-}
+
+    $('html,body').animate({
+        scrollTop: tag.offset().top
+    }, 'slow');
+};

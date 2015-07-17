@@ -5,10 +5,11 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 iron:router
-twbs:bootstrap
 fezvrasta:bootstrap-material-design
 msavin:mongol
 juliancwirko:s-alert
 juliancwirko:s-alert-slide
+useraccounts:core
+useraccounts:bootstrap
+accounts-password

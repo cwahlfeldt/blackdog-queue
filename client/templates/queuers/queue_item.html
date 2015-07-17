@@ -1,7 +1,15 @@
 <template name="queueItem">
     <div id="{{_id}}" class="panel panel-default">
         <div class="panel-body">
-           <span class="name-text"><b><h4 class="counted pull-left">{{name}}</h4></b></span> <span class="badge pull-right">{{partySize}}</span>     
+            <span class="name-text"><b><h4 class="counted pull-left">{{name}}</h4></b></span> 
+            <div class="pull-right">
+                {{#if currentUser}}
+                    <button class="delete-btn btn btn-danger btn-sm">DELETE</button>
+                    <button class="edit-btn btn btn-warning btn-sm">EDIT</button>
+                    <button class="seat-btn btn btn-success btn-sm">SEAT</button>
+                {{/if}}
+                <span class="badge">{{partySize}}</span> 
+            </div>
         </div>
     </div>
 </template>

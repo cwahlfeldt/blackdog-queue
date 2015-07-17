@@ -7,17 +7,20 @@ body {
     position: fixed;
 }
 .header {
-    background-color: #F26300;
+    background-color: rgb(54, 54, 54);
     padding: 130px;
     padding-bottom: 100%;
     margin-left: -40px;
-    margin-top: -50px;
+    margin-top: -142px;
     width: 38.5%;
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.12), 0 6px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .col-md-8 {
     padding-right: 20px;
     padding-left: 50px;
+}
+a, a:hover, a:focus {
+    /* color: #010; */
 }
 .badge {
     display: inline-block;
@@ -51,7 +54,7 @@ h4 {
     height: 150px;
 }
 .mdi-content-add:before {
-    font-size: 100px;
+    font-size: 118px;
 }
 .modal-content {
     font-size: 2em !important;
@@ -75,4 +78,36 @@ fieldset[disabled] .form-control.focus:not(textarea),
 }
 .s-alert-box {
     z-index: 1100;
+}
+.nav {
+    margin-top: 300px;
+    margin-left: 20px;
+}
+.attention {
+    color: red;
+}
+.at-title h3 {
+    margin:  40px 0;
+}
+.at-btn {
+    font-size: 16px;
+    padding: 10px 12px;
+    margin-top: 30px;
+}
+.title-text {
+    margin-bottom: 20px;
+    padding-left: 16px;
+}
+.add-btn {
+    margin-top: 115px !important;
+}
+.panel {
+    box-shadow: none;
+}
+.btn.btn-sm {
+    padding: 0px 17px;
+    margin: 0 15px 7px;
+}
+.btn {
+    margin: 0;
 }

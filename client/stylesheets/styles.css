@@ -96,7 +96,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
 }
 .title-text {
     margin-bottom: 20px;
-    padding-left: 16px;
+    /* padding-left: 16px; */
 }
 .add-btn {
     margin-top: 115px !important;
@@ -110,4 +110,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
 }
 .btn {
     margin: 0;
+}
+.big-wrap {
+    padding: 0 10px;
 }

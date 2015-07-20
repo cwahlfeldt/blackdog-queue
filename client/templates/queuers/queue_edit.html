@@ -1,4 +1,4 @@
-<template name="queueSubmit">
+<template name="queueEdit">
     <a class="btn btn-danger" href="{{pathFor 'queueList'}}">Back</a>
     <div class="at-title">
         <h3>Add your Name</h3>
@@ -7,15 +7,15 @@
         <div class="form-body">
             <div class="form-group">
                 <label for="name">Name <span class="attention">*</span></label>
-                <input type="input" class="form-control" id="name" name="name" required>
+                <input value="{{name}}" type="input" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="Party">Size of Party <span class="attention">*</span></label>
-                <input type="number" min="0" max="20" class="form-control" id="party" name="party" required>
+                <input value="{{partySize}}" type="number" min="0" max="20" class="form-control" id="party" name="party" required>
             </div>
             <div class="form-group">
                 <label for="name">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" name="phone">
+                <input value="{{phoneNumber}}" type="tel" class="form-control" id="phone" name="phone">
             </div>
         </div>
         <hr>
@@ -24,3 +24,4 @@
         </div>
     </form>
 </template>
+

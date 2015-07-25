@@ -4,11 +4,13 @@
         <div class="row">
             <br>
             <div class="main-wrap">
-                <div class="col-md-4 mast-head">
+                <div class="mobile-header {{visible}}">
+                    <div class="mobile-header">{{> mobileHeader}}</div>
+                </div>
+                <div class="col-md-4 col-xs-4 mast-head {{hidden}}">
                     <div class="header-wrap">{{> header}}</div>
                 </div>
-
-                <div class="col-md-8">
+                <div class="col-md-8 col-sm-8 col-xs-12">
                     <div class="big-wrap">{{> yield}}</div>
                 </div>
                 <br>

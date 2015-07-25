@@ -13,3 +13,6 @@ juliancwirko:s-alert-slide
 useraccounts:core
 useraccounts:bootstrap
 accounts-password
+mrt:twilio-meteor
+momentjs:moment
+aldeed:collection2

@@ -19,7 +19,9 @@ body {
     padding-right: 20px;
     padding-left: 50px;
 }
-a, a:hover, a:focus {
+a,
+a:hover,
+a:focus {
     /* color: #010; */
 }
 .badge {
@@ -87,7 +89,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
     color: red;
 }
 .at-title h3 {
-    margin:  40px 0;
+    margin: 40px 0;
 }
 .at-btn {
     font-size: 16px;
@@ -102,7 +104,10 @@ fieldset[disabled] .form-control.focus:not(textarea),
     margin-top: 115px !important;
 }
 .panel {
-    box-shadow: none;
+    /* box-shadow: none; */
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .btn.btn-sm {
     padding: 0px 17px;
@@ -113,4 +118,46 @@ fieldset[disabled] .form-control.focus:not(textarea),
 }
 .big-wrap {
     padding: 0 10px;
+}
+@media screen and (max-width: 768px) {
+    .header {
+        background-color: rgb(54, 54, 54);
+        padding: 60px;
+        padding-bottom: 100%;
+        margin-left: -25px;
+        margin-top: -70px;
+        width: 34%;
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.12), 0 6px 6px 0 rgba(0, 0, 0, 0.12);
+    }
+    .add-btn {
+        margin-right: 40px;
+    }
+    .col-md-8 {
+        padding-right: 20px;
+        padding-left: 18px !important;
+    }
+    .navbar {
+        margin-top: -20px;
+    }
+}
+.button-wrap {
+    float: left;
+    margin-top: 11px;
+    padding-right: 15px;
+}
+.selected {
+    border-left: 15px solid #009688;
+    border-radius: 3px;
+    /* border-right: 3px solid #363636; */
+}
+h4.counted {
+    margin-left: 15px;
+}
+.selected h4 {
+    margin-left: 0px;
+}
+@media screen and (min-width: 1025px) {
+    .header {
+        width: 36.5%;
+    }
 }

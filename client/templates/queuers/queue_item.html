@@ -4,11 +4,13 @@
             <span class="name-text"><b><h4 class="counted pull-left">{{name}}</h4></b></span> 
             <div class="pull-right">
                 {{#if currentUser}}
-                    <div class="button-wrap {{selected}}">
-                        <a href="#" class="delete-btn btn btn-danger btn-sm">DELETE</a>
-                        <a href="{{pathFor 'queueEdit'}}" class="edit-btn btn btn-warning btn-sm">EDIT</a>
-                        <a href="#" class="seat-btn btn btn-success btn-sm">SEAT</a>
-                    </div>
+                    {{#if admin}}
+                        <div class="button-wrap {{selected}}">
+                            <a href="#" class="delete-btn btn btn-danger btn-sm">DELETE</a>
+                            <a href="{{pathFor 'queueEdit'}}" class="edit-btn btn btn-warning btn-sm">EDIT</a>
+                            <a href="#" class="seat-btn btn btn-success btn-sm">SEAT</a>
+                        </div>
+                    {{/if}}
                 {{/if}}
                 <span class="badge">{{partySize}}</span> 
             </div>

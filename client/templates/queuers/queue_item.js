@@ -1,9 +1,24 @@
 Template.queueItem.helpers({
     selected: function() {
-        return Session.equals('selectedQueuer', this._id) ? 'visible' : 'hidden';
+        if (Meteor.user()) {
+            if (Session.equals('selectedQueuer', this._id) && Session.get('isAdmin')) {
+                return 'visible';
+            } else {
+                return 'hidden';
+            }
+        }
+
     },
     selectedPanel: function() {
-        return Session.equals('selectedQueuer', this._id) ? 'selected' : '';
+        if (Meteor.user() &&  Session.get('isAdmin'))
+            return Session.equals('selectedQueuer', this._id) ? 'selected' : '';
+    },
+    admin: function() {
+        if (Session.get('isAdmin')) {
+            return Session.get('isAdmin');
+        } else {
+            return Session.get('isAdmin');
+        }
     }
 });
 
@@ -34,6 +49,7 @@ Template.queueItem.events({
         var message = 'Your table for ' +
             queuer.partySize + ' is ready. ' +
             queuer.name + ', Come on in!';
+
         var data = {
             queuer: queuer,
             message: message

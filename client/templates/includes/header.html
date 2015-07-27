@@ -2,15 +2,25 @@
     <div class="text-center header fixed">
         <h1 class="title-text"><b><a href="{{pathFor 'queueList'}}">Queue</a></b></h1>
         <br>
-        <a class="add-btn btn btn-fab mdi-content-add btn-primary" href="{{pathFor 'queueSubmit'}}"></a>
-        <br>
-        <br>
-        {{#if currentUser}}
-            <a class="newboard-btn btn btn-danger">New Board</a>
-        {{/if}}
+        <div class="controls">
+            {{#if currentUser}}
+                 <a class="add-btn btn btn-fab mdi-content-add btn-primary" href="{{pathFor 'queueSubmit'}}"></a>
+                <br>
+                <br>
+                {{#if admin}}
+                    <a class="newboard-btn btn btn-danger">New Board</a>
+                {{/if}} 
+            {{/if}}
+        </div>
         <div class="nav">
             {{#if currentUser}}
                 <a class="log-out">Log Out</a>
+                {{#unless admin}}
+                    <a class="admin-login">Admin</a>
+                {{/unless}}
+                {{#if admin}} 
+                    <a class="admin-logout"><i>Admin</i></a>
+                {{/if}} 
             {{else}}
                 <a class="sign-in" href="{{pathFor 'signIn'}}">Sign In</a>
             {{/if}}

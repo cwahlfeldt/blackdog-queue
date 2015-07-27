@@ -119,7 +119,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
 .big-wrap {
     padding: 0 10px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .header {
         background-color: rgb(54, 54, 54);
         padding: 60px;
@@ -138,6 +138,19 @@ fieldset[disabled] .form-control.focus:not(textarea),
     }
     .navbar {
         margin-top: -20px;
+    }
+    .button-wrap {
+        float: left;
+        margin-top: 11px;
+        padding-right: 0px !important;
+    }
+    .btn.btn-sm {
+        padding: 0px 17px;
+        margin: 0 10px 7px;
+    }
+    .nav {
+        margin-top: 561px;
+        margin-left: 20px;
     }
 }
 .button-wrap {
@@ -160,4 +173,10 @@ h4.counted {
     .header {
         width: 36.5%;
     }
+}
+.controls {
+    min-height: 327px;
+}
+.nav a {
+    padding: 0px 5px;
 }

@@ -7,7 +7,7 @@ body {
     position: fixed;
 }
 .header {
-    background-color: rgb(54, 54, 54);
+    background-color: #F48233;
     padding: 130px;
     padding-bottom: 100%;
     margin-left: -40px;
@@ -22,7 +22,7 @@ body {
 a,
 a:hover,
 a:focus {
-    /* color: #010; */
+    color: #fff;
 }
 .badge {
     display: inline-block;
@@ -52,11 +52,11 @@ h4 {
     margin: 0;
     padding: 15px;
     font-size: 26px;
-    width: 150px;
-    height: 150px;
+    width: 132px;
+    height: 132px;
 }
 .mdi-content-add:before {
-    font-size: 118px;
+    font-size: 100px;
 }
 .modal-content {
     font-size: 2em !important;
@@ -121,7 +121,6 @@ fieldset[disabled] .form-control.focus:not(textarea),
 }
 @media screen and (max-width: 769px) {
     .header {
-        background-color: rgb(54, 54, 54);
         padding: 60px;
         padding-bottom: 100%;
         margin-left: -25px;
@@ -179,4 +178,24 @@ h4.counted {
 }
 .nav a {
     padding: 0px 5px;
+}
+.form-body{
+    font-size: 19px;
+}
+.btn-lg, .btn-group-lg > .btn {
+    padding: 10px 16px;
+    font-size: 19px !important;
+    line-height: 2.333333;
+    border-radius: 6px;
+}
+.at-title h2 {
+    margin: 50px 0;
+}
+.form-group {
+    margin-top: 29px;
+}
+.at-pwd-form > form label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 20px;
 }

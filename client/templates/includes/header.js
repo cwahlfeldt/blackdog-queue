@@ -21,21 +21,27 @@ Template.header.events({
         Meteor.logout();
     },
     'click .newboard-btn': function() {
-        Meteor.call('queueReset',  function(error, result) {
-            if (error) {
-                return console.log('Error on Reset');
-            }
-        });
+        if (confirm('Sure you wanna reset dude?')) {
+            Meteor.call('queueReset', function(error, result) {
+                if (error) {
+                    return console.log('Error on Reset');
+                }
+            });
+        }
     },
     'click .admin-login': function() {
         var password = prompt('Please enter you password again', 'Your Password Again');
-        
+
         if (password === 'Halloween_8') {
             Session.set('isAdmin', true);
             console.log(Session.get('isAdmin'));
         }
     },
     'click .admin-logout': function() {
-        Session.set('isAdmin', false);
+        var confirmation = window.confirm('Are you sure you want to log Admin out?');
+
+        if (confirmation === true) {
+            Session.set('isAdmin', false);
+        }
     }
 });

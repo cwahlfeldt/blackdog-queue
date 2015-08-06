@@ -16,8 +16,8 @@ body {
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.12), 0 6px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .col-md-8 {
-    padding-right: 20px;
-    padding-left: 50px;
+    padding-right: 40px;
+    padding-left: 70px;
 }
 a,
 a:hover,
@@ -82,8 +82,8 @@ fieldset[disabled] .form-control.focus:not(textarea),
     z-index: 1100;
 }
 .nav {
-    margin-top: 300px;
-    margin-left: 20px;
+    margin-top: 260px;
+    text-align: center;
 }
 .attention {
     color: red;
@@ -132,8 +132,8 @@ fieldset[disabled] .form-control.focus:not(textarea),
         margin-right: 40px;
     }
     .col-md-8 {
-        padding-right: 20px;
-        padding-left: 18px !important;
+        padding-right: 25px;
+        padding-left: 20px !important;
     }
     .navbar {
         margin-top: -20px;
@@ -145,10 +145,10 @@ fieldset[disabled] .form-control.focus:not(textarea),
     }
     .btn.btn-sm {
         padding: 0px 17px;
-        margin: 0 10px 7px;
+        margin: 0 5px 7px;
     }
     .nav {
-        margin-top: 561px;
+        margin-top: 510px;
         margin-left: 20px;
     }
 }
@@ -177,12 +177,13 @@ h4.counted {
     min-height: 327px;
 }
 .nav a {
-    padding: 0px 5px;
+    padding: 0px 7px;
 }
-.form-body{
+.form-body {
     font-size: 19px;
 }
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg,
+.btn-group-lg > .btn {
     padding: 10px 16px;
     font-size: 19px !important;
     line-height: 2.333333;
@@ -198,4 +199,12 @@ h4.counted {
     margin-bottom: 5px;
     font-weight: 500;
     font-size: 20px;
+}
+html,
+body {
+    overflow: auto;
+}
+.mdi-communication-portable-wifi-off {
+    padding: 6px;
+    margin-top: 3px;
 }

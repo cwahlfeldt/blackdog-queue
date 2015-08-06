@@ -2,6 +2,7 @@
     <div id="{{_id}}" class="queue-panel panel panel-default">
         <div class="panel-body {{selectedPanel}}">
             <span class="name-text"><b><h4 class="counted pull-left">{{name}}</h4></b></span> 
+            <span class="{{#if admin}} {{noNumberGlyph}} {{/if}}"></span>
             <div class="pull-right">
                 {{#if currentUser}}
                     {{#if admin}}

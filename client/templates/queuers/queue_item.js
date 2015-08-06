@@ -19,6 +19,17 @@ Template.queueItem.helpers({
         } else {
             return Session.get('isAdmin');
         }
+    },
+    noNumberGlyph: function() {
+        var queuer = Queuers.findOne({
+            _id: this._id
+        }, {});
+
+        if (queuer.phoneNumber === '') {
+            return 'mdi-communication-portable-wifi-off';
+        } else {
+            return '';
+        }
     }
 });
 
@@ -62,7 +73,6 @@ Template.queueItem.events({
                 if (error) {
                     return sAlert.error(error);
                 }
-
                 console.log('Sending Message...');
             });
 

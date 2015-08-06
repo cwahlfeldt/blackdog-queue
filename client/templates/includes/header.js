@@ -30,7 +30,7 @@ Template.header.events({
         }
     },
     'click .admin-login': function() {
-        var password = prompt('Please enter you password again', 'Your Password Again');
+        var password = prompt('Please enter your password again', 'Your Password Again');
 
         if (password === 'Halloween_8') {
             Session.set('isAdmin', true);

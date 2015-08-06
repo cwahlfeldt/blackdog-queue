@@ -7,15 +7,15 @@
         <div class="form-body">
             <div class="form-group">
                 <label for="name">Name <span class="attention">*</span></label>
-                <input type="input" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="Party">Size of Party <span class="attention">*</span></label>
-                <input type="number" min="0" max="20" class="form-control" id="party" name="party" required>
+                <input type="number" min="0" max="20" class="form-control" id="party" name="party" value="1" pattern="\d*" required>
             </div>
             <div class="form-group">
                 <label for="name">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" name="phone">
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})">
             </div>
         </div>
         <hr>

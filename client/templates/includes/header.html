@@ -7,6 +7,7 @@
                  <a class="add-btn btn btn-fab mdi-content-add btn-primary" href="{{pathFor 'queueSubmit'}}"></a>
                 <br>
                 <br>
+                <br>
                 {{#if admin}}
                     <a class="newboard-btn btn btn-danger">Clear All</a>
                 {{/if}} 
@@ -14,7 +15,9 @@
         </div>
         <div class="nav">
             {{#if currentUser}}
-                <a class="log-out">Log Out</a>
+                {{#if admin}}
+                    <a class="log-out">Log Out</a>
+                {{/if}}
                 {{#unless admin}}
                     <a class="admin-login">Admin</a>
                 {{/unless}}

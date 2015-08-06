@@ -12,6 +12,8 @@ Template.queueSubmit.events({
             phoneNumber: $(e.target).find('[name=phone]').val()
         };
         
+        queuer.phoneNumber.replace(/\D/g, '');
+
         // queuer info must be available
         if (queuer.name === '' || queuer.partySize === '') {
             sAlert.error('Name and party size required!');
@@ -50,6 +52,7 @@ Template.queueSubmit.events({
         $('#name').val('');
         $('#party').val('');
         $('#phone').val('');
+
         Router.go('queueList');
     }
 });

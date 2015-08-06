@@ -1,5 +1,7 @@
 <template name="queueList">
+    <div class="list-wrapper">
         {{#each queuers}} 
-            {{> queueItem}}
+            <div class="item-wrapper">{{> queueItem}}</div>
         {{/each}}
+    </div>
 </template>

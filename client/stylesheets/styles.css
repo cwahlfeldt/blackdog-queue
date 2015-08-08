@@ -130,7 +130,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
     }
     .add-btn {
         margin-right: 40px;
-        margin-top: 115px !important;
+        margin-top: 50px !important;
     }
     .col-md-8 {
         padding-right: 25px;

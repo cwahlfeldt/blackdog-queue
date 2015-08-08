@@ -61,8 +61,8 @@ Template.queueItem.events({
             }
 
             var message = 'Your table for ' +
-                queuer.partySize + ' is ready. ' +
-                queuer.name + ', Come on in!';
+                queuer.partySize + ' is ready ' +
+                queuer.name + '. Come on in!';
 
             var data = {
                 queuer: queuer,

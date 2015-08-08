@@ -31,7 +31,7 @@ Template.queueSubmit.events({
             var url = window.location.href + '#' + id;
             // create the message
             var message = 'Thanks ' + queuer.name +
-                ' check you place in line at ' + url;
+                ', check your place in line at ' + url;
             // grab all the data needed for the method to work correctly
             var data = {
                 queuer: queuer,

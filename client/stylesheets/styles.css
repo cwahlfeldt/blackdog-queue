@@ -82,7 +82,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
     z-index: 1100;
 }
 .nav {
-    margin-top: 260px;
+    margin-top: 140px;
     text-align: center;
 }
 .attention {
@@ -101,7 +101,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
     /* padding-left: 16px; */
 }
 .add-btn {
-    margin-top: 115px !important;
+    margin-top: 50px !important;
 }
 .panel {
     /* box-shadow: none; */
@@ -130,6 +130,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
     }
     .add-btn {
         margin-right: 40px;
+        margin-top: 115px !important;
     }
     .col-md-8 {
         padding-right: 25px;
@@ -148,7 +149,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
         margin: 0 5px 7px;
     }
     .nav {
-        margin-top: 510px;
+        margin-top: 386px;
         margin-left: 20px;
     }
 }
@@ -207,4 +208,9 @@ body {
 .mdi-communication-portable-wifi-off {
     padding: 6px;
     margin-top: 3px;
+}
+.logo {
+    width: 100%;
+    margin-top: 7px;
+    padding-right: 5px;
 }

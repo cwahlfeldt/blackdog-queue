@@ -1,10 +1,11 @@
 <template name="header">
     <div class="text-center header fixed">
-        <h1 class="title-text"><b><a href="{{pathFor 'queueList'}}">Queue</a></b></h1>
+        <!--<h1 class="title-text"><b><a href="{{pathFor 'queueList'}}">Queue</a></b></h1>-->
+        <img class="logo" src="blackdog-logo-blue.png" alt="">
         <br>
         <div class="controls">
             {{#if currentUser}}
-                 <a class="add-btn btn btn-fab mdi-content-add btn-primary" href="{{pathFor 'queueSubmit'}}"></a>
+                <a class="add-btn btn btn-fab mdi-content-add btn-primary" href="{{pathFor 'queueSubmit'}}"></a>
                 <br>
                 <br>
                 <br>

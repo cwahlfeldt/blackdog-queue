@@ -9,6 +9,16 @@ Template.header.helpers({
         } else {
             return false;
         }
+    },
+    avgWaitTime: function() {
+        if (waitTimes.length() >= 2) {
+            var total = 0;
+            for (var i = 0; i <= waitTimes.length; i++) {
+                total += waitTimes[i];
+            }
+            var avg = total / waitTimes.length;
+            return avg;
+        }
     }
 });
 
@@ -34,7 +44,6 @@ Template.header.events({
 
         if (password === 'Halloween_8') {
             Session.set('isAdmin', true);
-            console.log(Session.get('isAdmin'));
         }
     },
     'click .admin-logout': function() {

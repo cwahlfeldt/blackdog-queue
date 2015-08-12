@@ -1,3 +1,6 @@
+// global array holding all the wait times
+waitTimes = []; 
+
 Template.queueItem.helpers({
     selected: function() {
         if (Meteor.user()) {
@@ -46,18 +49,17 @@ Template.queueItem.events({
     'click .panel-body': function(e) {
         Session.set('selectedQueuer', this._id);
     },
+    // when ytou press the seat button
     'click .seat-btn': function(e) {
-        if (confirm('Are you sure you want to seat the customer?')) {
-            var queuer = Queuers.findOne({
-                _id: this._id
-            }, {});
 
+        // grab the queuer item from the database
+        var queuer = Queuers.findOne({
+            _id: this._id
+        }, {});
+
+        if (confirm('Are you sure you want to seat the customer?') && queuer.phoneNumber === '') {
             if (queuer._id === '') {
                 return sAlert.error('Cant find queuer!');
-            }
-
-            if (queuer.phoneNumber === '') {
-                return sAlert.error('User did not enter a phone number!');
             }
 
             var message = 'Your table for ' +
@@ -69,18 +71,35 @@ Template.queueItem.events({
                 message: message
             };
 
+            // seat the customer and call the message method
             Meteor.call('messageQueuer', data, function(error, result) {
                 if (error) {
                     return sAlert.error(error);
                 }
-                console.log('Sending Message...');
-            });
 
-            Meteor.call('queuerRemove', this._id, function(error, result) {
-                if (error) {
-                    return sAlert.error('Remove Error!');
-                }
+                // get hours
+                var fromHours = result.date.getHours(),
+                    toHours = new Date().getHours();
+                // get min
+                var fromMin = result.date.getMinutes(),
+                    toMin = new Date().getMinutes();
+                // get both ti mes in a nice little object literal
+                var waitTime = {
+                    hours: toHours - fromHours,
+                    min: toMin - fromMin
+                };
+
+                console.log(waitTime);
+
+                waitTimes.push(waitTime);
             });
         }
+
+        Meteor.call('queuerRemove', this._id, function(error, result) {
+            if (error) {
+                return sAlert.error('Remove Error!');
+            }
+        });
+
     }
 });

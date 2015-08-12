@@ -11,26 +11,17 @@ Template.queueEdit.events({
             partySize: $(e.target).find('[name=party]').val(),
             phoneNumber: $(e.target).find('[name=phone]').val()
         };
-        
         // name and party size are required
         if (queuer.name === '' || queuer.partySize === '') {
             sAlert.error('Name and party size required!');
             return false;
         }
-        
-        //console.log(queuer.phoneNumber);
-        /*if (!isNaN(queuer.phoneNumber)) {
-            sAlert.error('Please enter your phone number!');
-            return false;
-        }*/
-        
         // client side update, might need more security settings
         Queuers.update(this._id, {
             $set: queuer
         }, function(error) {
             if (error) {
                 sAlert.error('Error on edit');
-                return false;
             } else {
                 Router.go('queueList');
             }

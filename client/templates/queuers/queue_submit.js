@@ -40,12 +40,12 @@ Template.queueSubmit.events({
                 id: id
             };
             
-            console.log(message);
+            console.log('Message sent: ' + message);
+
             Meteor.call('messageQueuer', data, function(error, result) {
                 if (error) {
                     return sAlert.error(error);
                 }
-                console.log('Message sending...');
             });
         });
         
@@ -54,5 +54,7 @@ Template.queueSubmit.events({
         $('#phone').val('');
 
         Router.go('queueList');
+
+        return sAlert.success('Thanks');
     }
 });

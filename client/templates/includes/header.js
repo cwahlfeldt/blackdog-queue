@@ -56,9 +56,9 @@ Template.header.events({
         }
     },
     'click .admin-login': function() {
-        var password = prompt('Please enter your password again', 'Your Password Again');
+        var password = prompt('Please enter your password again', '');
 
-        if (password === 'Halloween_8') {
+        if (password === 'Blackdog09!') {
             Session.set('isAdmin', true);
         }
     },

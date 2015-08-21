@@ -217,3 +217,8 @@ body {
 .wait-time {
     background: white;
 }
+.mdi-communication-portable-wifi-off {
+    padding: 6px;
+    color: red;
+    margin-top: 3px;
+}

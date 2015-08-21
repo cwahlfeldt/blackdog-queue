@@ -11,14 +11,26 @@ Template.header.helpers({
         }
     },
     avgWaitTime: function() {
-        if (waitTimes.length() >= 2) {
+        // if array has been added to it will trigger this session var to be true
+        if (Session.get('waitTimeBool') === true) {
             var total = 0;
+            // Add up all the values in the waittimes array
             for (var i = 0; i <= waitTimes.length; i++) {
-                total += waitTimes[i];
+                if (!isNaN(waitTimes[i])) {
+                    total += waitTimes[i];
+                }
             }
-            var avg = total / waitTimes.length;
+            
+            // initialize to 0
+            var avg = 0;
+
+            // find the average wait time based on the total minus the amount of wait times
+            avg = Math.round(Math.abs(total / waitTimes.length));
+            
+            // return a rounded average
             return avg;
         }
+        return 0;
     }
 });
 
@@ -37,6 +49,10 @@ Template.header.events({
                     return console.log('Error on Reset');
                 }
             });
+
+            // reset waitTimes array
+            waitTimes = [];
+            Session.set('waitTimeBool', false);
         }
     },
     'click .admin-login': function() {

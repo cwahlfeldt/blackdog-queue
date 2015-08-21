@@ -8,10 +8,15 @@
                 <a class="add-btn btn btn-fab mdi-content-add btn-primary" href="{{pathFor 'queueSubmit'}}"></a>
                 <br>
                 <br>
-                <br>
                 {{#if admin}}
                     <a class="newboard-btn btn btn-danger">Clear All</a>
-                {{/if}} 
+                {{/if}}
+                <br>
+                <!-- Average wait time template goes here.
+                <div class="wait-time">
+                    <h4>Avg. Wait Time:</h4>
+                    <h2>{{avgWaitTime}} Min.</h2>
+                </div>-->
             {{/if}}
         </div>
         <div class="nav">

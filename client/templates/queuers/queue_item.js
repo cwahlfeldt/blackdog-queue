@@ -1,5 +1,5 @@
 // global array holding all the wait times
-waitTimes = []; 
+waitTimes = [];
 
 Template.queueItem.helpers({
     selected: function() {
@@ -89,17 +89,20 @@ Template.queueItem.events({
                     min: toMin - fromMin
                 };
 
-                console.log(waitTime);
+                // reset to false to re-up the helper 
+                Session.set('waitTimeBool', false);
 
-                waitTimes.push(waitTime);
+                waitTimes.push(waitTime.min);
+
+                if (waitTimes.length >= 1) {
+                    Session.set('waitTimeBool', true);
+                }
+            });
+            Meteor.call('queuerRemove', this._id, function(error, result) {
+                if (error) {
+                    return sAlert.error('Remove Error!');
+                }
             });
         }
-
-        Meteor.call('queuerRemove', this._id, function(error, result) {
-            if (error) {
-                return sAlert.error('Remove Error!');
-            }
-        });
-
     }
 });

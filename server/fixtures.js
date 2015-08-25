@@ -1,3 +1,4 @@
+// this is old fixture data
 if (Meteor.users.find().count() === 0) {
     Accounts.createUser({
         username: 'bdawg',

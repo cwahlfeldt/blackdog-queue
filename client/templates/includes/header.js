@@ -59,7 +59,9 @@ Template.header.events({
         var password = prompt('Please enter your password again', '');
 
         if (password === 'Blackdog09!') {
-            Session.set('isAdmin', true);
+            return Session.set('isAdmin', true);
+        } else {
+            return sAlert.error('Incorrect password');
         }
     },
     'click .admin-logout': function() {

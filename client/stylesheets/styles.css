@@ -41,6 +41,9 @@ a:focus {
 h4.counted::before {
     counter-increment: section;
     content: counter(section)" ";
+    color: #009688;
+    margin-right: 10px;
+    margin-left: -7px;
 }
 h4 {
     font-weight: bold;
@@ -225,4 +228,8 @@ body {
     padding: 6px;
     color: red;
     margin-top: 3px;
+}
+h5.time {
+    margin-right: 28px;
+    margin-top: 12px;
 }

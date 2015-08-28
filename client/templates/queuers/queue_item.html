@@ -1,8 +1,9 @@
 <template name="queueItem">
     <div  class="queue-panel panel panel-default">
-        <div id="{{_id}}" class="panel-body {{selectedPanel}}">
+        <div id="{{_id}}" class="panel-body {{texted}} {{selectedPanel}}">
             <span class="name-text"><b><h4 class="counted pull-left">{{name}}</h4></b></span> 
             <span class="{{#if admin}} {{noNumberGlyph}} {{/if}}"></span>
+            
             <div class="pull-right">
                 {{#if currentUser}}
                     {{#if admin}}
@@ -18,6 +19,7 @@
                 {{/if}}
                 <span class="badge">{{partySize}}</span> 
             </div>
+            <div class="pull-right"><h5 class="time">{{time}}</h5></div>
         </div>
     </div>
 </template>

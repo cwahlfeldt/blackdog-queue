@@ -43,6 +43,20 @@ Template.queueItem.helpers({
         } else {
             return true;
         }
+    },
+    texted: function() {
+        if (Session.get('tested')) {
+            return 'bg-warning';
+        }
+        
+        return '';
+    },
+    time: function() {
+        var queuer = Queuers.findOne({
+            _id: this._id
+        }, {});
+        
+        return formatAmPm(queuer.date);            
     }
 });
 
@@ -60,6 +74,13 @@ Template.queueItem.events({
     },
     'click .panel-body': function(e) {
         Session.set('selectedQueuer', this._id);
+
+        /*if ($(e.target).find($('.panel-body').hasClass('selected'))) {
+            $(e.target).find($('.time')).addClass('hidden');
+        } else {
+            $(e.target).find($('.time')).removeClass('hidden');
+        }*/
+
     },
     // just text the person and not delete them
     'click .text-btn': function(e) {
@@ -86,12 +107,13 @@ Template.queueItem.events({
                     message: message
                 };
 
+                Session.set('texted', true);
+
                 // seat the customer and call the message method
                 Meteor.call('messageQueuer', data, function(error, result) {
                     if (error) {
                         return sAlert.error(error);
                     }
-                    
                     
                     sAlert.success('The customer has been texted');
 
@@ -191,3 +213,16 @@ Template.queueItem.events({
         }
     }
 });
+
+// format date time to 12 hour clock not 24
+var formatAmPm = function(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes;
+    // + ' ' + ampm;
+    return strTime;
+};

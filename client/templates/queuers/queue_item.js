@@ -1,6 +1,10 @@
 // global array holding all the wait times
 waitTimes = [];
 
+Template.queueItem.onRendered(function() {
+    Session.set('hider', true);
+});
+
 Template.queueItem.helpers({
     selected: function() {
         if (Meteor.user()) {
@@ -45,7 +49,7 @@ Template.queueItem.helpers({
         }
     },
     texted: function() {
-        if (Session.get('tested')) {
+        if (Session.get('isAdmin') && Session.equals('texted', this._id)) {
             return 'bg-warning';
         }
         
@@ -57,6 +61,18 @@ Template.queueItem.helpers({
         }, {});
         
         return formatAmPm(queuer.date);            
+    },
+    hider: function() {
+        // hides time when queuer is selected
+        if (Session.equals('selectedQueuer', this._id) && 
+            Meteor.user() && 
+            Session.get('isAdmin'))
+        {
+            
+            return 'hidden';
+        }
+
+        return 'visible';
     }
 });
 
@@ -81,6 +97,12 @@ Template.queueItem.events({
             $(e.target).find($('.time')).removeClass('hidden');
         }*/
 
+    },
+    'focus .panel': function() {
+        Session.set('hider', true);
+    },
+    'blur .panel': function() {
+        Session.set('hider', false);  
     },
     // just text the person and not delete them
     'click .text-btn': function(e) {
@@ -107,8 +129,6 @@ Template.queueItem.events({
                     message: message
                 };
 
-                Session.set('texted', true);
-
                 // seat the customer and call the message method
                 Meteor.call('messageQueuer', data, function(error, result) {
                     if (error) {
@@ -117,32 +137,9 @@ Template.queueItem.events({
                     
                     sAlert.success('The customer has been texted');
 
-                    /* *** calculate hours might not be needed for just texting the queuer ***
-
-                    // get hours
-                    var fromHours = result.date.getHours(),
-                        toHours = new Date().getHours();
-                    // get min
-                    var fromMin = result.date.getMinutes(),
-                        toMin = new Date().getMinutes();
-                    // get both ti mes in a nice little object literal
-                    var waitTime = {
-                        hours: toHours - fromHours,
-                        min: toMin - fromMin
-                    };
-
-                    // reset to false to re-up the helper 
-                    Session.set('waitTimeBool', false);
-
-                    waitTimes.push(waitTime.min);
-
-                    if (waitTimes.length >= 1) {
-                        Session.set('waitTimeBool', true);
-                    }
-                    */
                 });
 
-                $('#' + this._id).addClass('bg-warning');
+                Session.set('texted', this._id);
 
             }
         } else {
@@ -222,7 +219,6 @@ var formatAmPm = function(date) {
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
     minutes = minutes < 10 ? '0' + minutes : minutes;
-    var strTime = hours + ':' + minutes;
-    // + ' ' + ampm;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
 };

@@ -232,4 +232,8 @@ body {
 h5.time {
     margin-right: 28px;
     margin-top: 12px;
+    color: #009688;
+}
+.panel-body {
+    padding: 12px;
 }

@@ -121,7 +121,7 @@ Template.queueItem.events({
                 // create the message
                 var message = 'Your table for ' +
                     queuer.partySize + ' is ready ' +
-                    queuer.name + '. Come on in!';
+                    queuer.name + '. Come on in!' + ' ';
 
                 // get message and queuer in a data variable
                 var data = {

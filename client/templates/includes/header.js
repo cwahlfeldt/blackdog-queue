@@ -1,5 +1,5 @@
 Template.header.onRendered(function() {
-    Session.set('isAdmin', false);
+    return Session.set('isAdmin', false);
 });
 
 Template.header.helpers({
@@ -38,9 +38,11 @@ Template.header.events({
     'click .add-btn': function() {
         $('#name').focus();
     },
-    'click .log-out': function() {
-        Session.set('isAdmin', false);
-        Meteor.logout();
+    'click .log-out': function() {        
+        if (confirm('Are you sure you want to LOG OUT?')) {
+            Meteor.logout();
+            return Session.set('isAdmin', false);
+        }
     },
     'click .newboard-btn': function() {
         if (confirm('Sure you wanna reset dude?')) {
@@ -52,7 +54,7 @@ Template.header.events({
 
             // reset waitTimes array
             waitTimes = [];
-            Session.set('waitTimeBool', false);
+            return Session.set('waitTimeBool', false);
         }
     },
     'click .admin-login': function() {
@@ -60,15 +62,17 @@ Template.header.events({
 
         if (password === 'Blackdog09!') {
             return Session.set('isAdmin', true);
+        } else if (password === null) {
+            return;
         } else {
-            return sAlert.error('Incorrect password');
+            return sAlert.error('Incorrect Password');
         }
     },
     'click .admin-logout': function() {
         var confirmation = window.confirm('Are you sure you want to log Admin out?');
 
         if (confirmation === true) {
-            Session.set('isAdmin', false);
+            return Session.set('isAdmin', false);
         }
     }
 });

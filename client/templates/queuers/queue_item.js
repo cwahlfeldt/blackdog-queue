@@ -49,11 +49,13 @@ Template.queueItem.helpers({
         }
     },
     texted: function() {
-        if (Session.get('isAdmin') && Session.equals('texted', this._id)) {
+        var queuer = Queuers.findOne({
+            _id: this._id
+        }, {});
+
+        if (queuer.texted) {
             return 'bg-warning';
         }
-        
-        return '';
     },
     time: function() {
         var queuer = Queuers.findOne({
@@ -68,7 +70,6 @@ Template.queueItem.helpers({
             Meteor.user() && 
             Session.get('isAdmin'))
         {
-            
             return 'hidden';
         }
 
@@ -110,6 +111,18 @@ Template.queueItem.events({
         var queuer = Queuers.findOne({
             _id: this._id
         }, {});
+
+                // client side update, might need more security settings
+        Queuers.update(this._id, {
+            $set: {texted: true}
+        }, function(error) {
+            if (error) {
+                sAlert.error('Error on edit');
+            } else {
+                Router.go('queueList');
+            }
+        });
+
 
         // no need to message the queuer if no phone number has been placed
         if (queuer.phoneNumber !== '') {

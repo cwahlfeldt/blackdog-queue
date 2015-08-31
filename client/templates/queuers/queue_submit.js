@@ -25,6 +25,11 @@ Template.queueSubmit.events({
             return false;
         }
 
+        if ((queuer.phoneNumber.toString().length < 10) 
+            && queuer.phoneNumber !== '') {
+            return sAlert.error('Please include area code');
+        }
+
         // insert the new queuer
         Meteor.call('queuerInsert', queuer, function(error, result) {
             if (error) {

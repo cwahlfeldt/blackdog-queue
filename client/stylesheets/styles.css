@@ -153,7 +153,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
     }
     .nav {
         margin-top: 375px;
-        margin-left: 20px;
+        margin-left: 0px;
     }
 }
 .button-wrap {
@@ -185,7 +185,9 @@ h4.counted {
     min-height: 327px;
 }
 .nav a {
-    padding: 0px 7px;
+    padding: 3px 7px;
+    border: solid rgb(36, 31, 32) 1px;
+    border-radius: 3px;
 }
 .form-body {
     font-size: 19px;

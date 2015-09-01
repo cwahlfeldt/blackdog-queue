@@ -188,6 +188,7 @@ h4.counted {
     padding: 3px 7px;
     border: solid rgb(36, 31, 32) 1px;
     border-radius: 3px;
+    text-decoration: none;
 }
 .form-body {
     font-size: 19px;

@@ -123,7 +123,6 @@ Template.queueItem.events({
             }
         });
 
-
         // no need to message the queuer if no phone number has been placed
         if (queuer.phoneNumber !== '') {
             if (confirm('Are you sure you want to TEXT the customer')) {
@@ -172,6 +171,9 @@ Template.queueItem.events({
                 return sAlert.error('Cant find queuer!');
             }
 
+            sAlert.success('Seated ' + queuer.name);
+
+            /*
             // no need to message the queuer if no phone number has been placed
             if (queuer.phoneNumber !== '') {
                 var message = 'Your table for ' +
@@ -213,6 +215,7 @@ Template.queueItem.events({
                     return sAlert.success('The customer has been seated');
                 });
             }
+            */
 
             // remove queuer from line after being sent a message
             Meteor.call('queuerRemove', this._id, function(error, result) {

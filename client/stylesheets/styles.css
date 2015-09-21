@@ -36,7 +36,7 @@ a:focus {
     vertical-align: baseline;
     background-color: #777;
     border-radius: 10px;
-    margin-top: 8px;
+    margin-top: 13px;
 }
 h4.counted::before {
     counter-increment: section;
@@ -122,7 +122,23 @@ fieldset[disabled] .form-control.focus:not(textarea),
 .big-wrap {
     padding: 0 10px;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 739px) {
+    h4.counted {
+        font-size: 15px !important;
+        margin-top: 13px !important; 
+        margin-left: 15px !important;
+    }
+    h5.time {
+        margin-right: 28px !important;
+        margin-top: 15px !important;
+        font-size: 15px !important;
+        color: #009688 !important;
+    }
+    .badge {
+       font-size: 15px !important; 
+    }
+}
+@media screen and (max-width: 768px) {
     .header {
         padding: 60px;
         padding-bottom: 100%;
@@ -144,7 +160,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
     }
     .button-wrap {
         float: left;
-        margin-top: 11px;
+        margin-top: 17px;
         padding-right: 0px !important;
     }
     .btn.btn-sm {
@@ -158,7 +174,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
 }
 .button-wrap {
     float: left;
-    margin-top: 11px;
+    margin-top: 16px;
     padding-right: 15px;
 }
 .selected {
@@ -171,6 +187,7 @@ fieldset[disabled] .form-control.focus:not(textarea),
     border-radius: 3px;
 }
 h4.counted {
+    font-size: 25px;
     margin-left: 15px;
 }
 .selected h4 {
@@ -234,9 +251,16 @@ body {
 }
 h5.time {
     margin-right: 28px;
-    margin-top: 12px;
+    margin-top: 15px;
+    font-size: 20px;
     color: #009688;
 }
 .panel-body {
     padding: 12px;
+}
+.form-control {
+    font-size: 25px;
+}
+label {
+    font-size: 20px;
 }

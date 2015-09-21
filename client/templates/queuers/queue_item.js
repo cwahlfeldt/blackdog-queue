@@ -61,8 +61,8 @@ Template.queueItem.helpers({
         var queuer = Queuers.findOne({
             _id: this._id
         }, {});
-        
-        return formatAmPm(queuer.date);            
+
+        return formatAmPm(queuer.date);
     },
     hider: function() {
         // hides time when queuer is selected
@@ -132,8 +132,8 @@ Template.queueItem.events({
 
                 // create the message
                 var message = 'Your table for ' +
-                    queuer.partySize + ' is ready ' +
-                    queuer.name + '. Come on in!' + ' ';
+                    queuer.partySize + ' is ALMOST ready.' +
+                    ' Please see the host for more details.';
 
                 // get message and queuer in a data variable
                 var data = {
@@ -146,7 +146,7 @@ Template.queueItem.events({
                     if (error) {
                         return sAlert.error(error);
                     }
-                    
+
                     sAlert.success('The customer has been texted');
 
                 });
@@ -158,7 +158,7 @@ Template.queueItem.events({
             return sAlert.error('Customer did not enter a phone number');
         }
     },
-    // text the queuer and remove them from the queue 
+    // text the queuer and remove them from the queue
     'click .seat-btn': function(e) {
 
         // grab the queuer item from the database
@@ -166,7 +166,7 @@ Template.queueItem.events({
             _id: this._id
         }, {});
 
-        if (confirm('Are you sure you want to seat the customer?')) {
+        if (confirm('Are you sure you want to SEAT the customer?')) {
             if (queuer._id === '') {
                 return sAlert.error('Cant find queuer!');
             }
@@ -203,7 +203,7 @@ Template.queueItem.events({
                         min: toMin - fromMin
                     };
 
-                    // reset to false to re-up the helper 
+                    // reset to false to re-up the helper
                     Session.set('waitTimeBool', false);
 
                     waitTimes.push(waitTime.min);

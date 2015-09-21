@@ -1,6 +1,6 @@
 <template name="queueItem">
     <div tabindex="1" class="queue-panel panel panel-default">
-        <div id="{{_id}}" class="panel-body {{texted}} {{selectedPanel}}">
+        <div id="{{_id}}" class="panel-body {{#if admin}} {{texted}} {{/if}} {{selectedPanel}}">
             <span class="name-text"><b><h4 class="counted pull-left">{{name}}</h4></b></span> 
             <span class="{{#if admin}} {{noNumberGlyph}} {{/if}}"></span>
             

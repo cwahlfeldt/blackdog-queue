@@ -132,7 +132,7 @@ Template.queueItem.events({
 
                 // create the message
                 var message = 'Your table for ' +
-                    queuer.partySize + ' is ALMOST ready.' +
+                    queuer.partySize + ' is ready.' +
                     ' Please see the host for more details.';
 
                 // get message and queuer in a data variable

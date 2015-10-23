@@ -17,7 +17,7 @@ Template.queueSubmit.events({
         //queuer.phoneNumber.replace(/\D/g, '');
         
         // Format the name to look better, just read the function name... lol
-        queuer.name = queuer.name.capitalizeFirstLetterAndLowerCaseTheRest();
+        queuer.name = toTitleCase(queuer.name);
 
         // Queuer info must be available
         if (queuer.name === '' || queuer.partySize === '') {
@@ -71,7 +71,8 @@ Template.queueSubmit.events({
     }
 });
 
-// add a new function to the string object to uppcase the first letter and lowercase the rest 
-String.prototype.capitalizeFirstLetterAndLowerCaseTheRest = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
-};
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}

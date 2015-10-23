@@ -1,10 +1,21 @@
 Template.queueList.helpers({
     queuers: function() {
-        return Queuers.find({}, {
-            sort: {
-                date: 1
-            }
-        });
+        if (Meteor.user() !== null) {
+            return Queuers.find({
+                author: Meteor.userId()
+            }, {
+                sort: {
+                    date: 1
+                }
+            });
+        } else {
+            return Queuers.find({}, {
+                sort: {
+                    date: 1
+                }
+            });
+
+        }
     }
 });
 

@@ -1,9 +1,26 @@
+// Test area!
+Template.queueList.onRendered(function() {
+    //return console.log(Meteor.user().emails[0].address);
+});
+
 Template.queueList.helpers({
     queuers: function() {
         if (Meteor.user() !== null) {
             return Queuers.find({
-                author: Meteor.userId()
+                author: Meteor.user().emails[0].address
             }, {
+                sort: {
+                    date: 1
+                }
+            });
+        } else if (window.location.href.toString() === 'http://blackdog-queue.herokuapp.com/Champaign') {
+            return Queuers.find({location: 'Champaign'}, {
+                sort: {
+                    date: 1
+                }
+            });
+            } else if (window.location.href.toString() === 'http://blackdog-queue.herokuapp.com/Urbana') {
+            return Queuers.find({location: 'Urbana'}, {
                 sort: {
                     date: 1
                 }
@@ -14,7 +31,6 @@ Template.queueList.helpers({
                     date: 1
                 }
             });
-
         }
     }
 });

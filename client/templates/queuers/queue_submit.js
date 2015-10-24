@@ -12,7 +12,7 @@ Template.queueSubmit.events({
             partySize: $(e.target).find('[name=party]').val(),
             phoneNumber: $(e.target).find('[name=phone]').val()
         };
-        
+
         // Early form of phonenumber validation
         //queuer.phoneNumber.replace(/\D/g, '');
         
@@ -39,7 +39,18 @@ Template.queueSubmit.events({
             if (queuer.phoneNumber !== '') {
                 // get the id  
                 var id = result._id;
-                var url = window.location.href + '#' + id;
+                
+                // get window url based on whos logged in to filter for each store
+                var url = window.location.href;
+                if (Meteor.user().emails[0].address === 'blackdogcmi@gmail.com') {
+                    url = window.location.href + 'Urbana'
+                } 
+                if (Meteor.user().emails[0].address === 'blackdogsmoke@sbcglobal.net') {
+                    url = window.location.href + 'Champaign'    
+                }
+
+                console.log(url);
+
                 // create the message
                 var message = 'Thanks ' + queuer.name +
                     ', check your place in line at ' + url;

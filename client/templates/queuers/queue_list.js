@@ -13,14 +13,14 @@ Template.queueList.helpers({
                     date: 1
                 }
             });
-        } else if (window.location.href.toString() === 'http://blackdog-queue.herokuapp.com/Champaign') {
-            return Queuers.find({location: 'Champaign'}, {
+        } else if (window.location.href.toString() === 'http://blackdog-queue.herokuapp.com/champaign') {
+            return Queuers.find({location: 'champaign'}, {
                 sort: {
                     date: 1
                 }
             });
-            } else if (window.location.href.toString() === 'http://blackdog-queue.herokuapp.com/Urbana') {
-            return Queuers.find({location: 'Urbana'}, {
+            } else if (window.location.href.toString() === 'http://blackdog-queue.herokuapp.com/urbana') {
+            return Queuers.find({location: 'urbana'}, {
                 sort: {
                     date: 1
                 }

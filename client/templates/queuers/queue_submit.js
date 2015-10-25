@@ -43,10 +43,10 @@ Template.queueSubmit.events({
                 // get window url based on whos logged in to filter for each store
                 var url = window.location.href;
                 if (Meteor.user().emails[0].address === 'blackdogcmi@gmail.com') {
-                    url = window.location.href + 'Urbana'
+                    url = window.location.href + 'urbana'
                 } 
                 if (Meteor.user().emails[0].address === 'blackdogsmoke@sbcglobal.net') {
-                    url = window.location.href + 'Champaign'    
+                    url = window.location.href + 'champaign'    
                 }
 
                 console.log(url);
